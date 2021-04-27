@@ -1,5 +1,7 @@
 import bpy, os, shutil
 
+from .addon_prefs import get_addon_preferences
+
 
 def find_version(filedir, pattern):
     version_list = []
@@ -66,8 +68,12 @@ def save_backup(prefix, suffix, backup_folder):
 class BCKP_OT_create_backup(bpy.types.Operator):
     """Create a Backup File"""
     bl_idname = "bckp.create_backup"
-    bl_label = "Backup"
+    bl_label = "Save Backup"
     bl_options = {'REGISTER'}
+
+    @classmethod
+    def poll(cls, context):
+        return bpy.data.filepath
 
     def execute(self, context):
         prefs = get_addon_preferences()
@@ -87,4 +93,4 @@ def register():
     bpy.utils.register_class(BCKP_OT_create_backup)
 
 def unregister():
-    bpy.utils.unregister_class(BCKP_OT_create_backup
+    bpy.utils.unregister_class(BCKP_OT_create_backup)

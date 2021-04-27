@@ -16,8 +16,10 @@ class BCKP_PF_addon_prefs(bpy.types.AddonPreferences):
 
     def draw(self, context):
         layout = self.layout
-        layout.prop(self, "prefix")
-        layout.prop(self, "suffix")
+        col = layout.column(align=True)
+        col.prop(self, "prefix")
+        col.prop(self, "suffix")
+        col.prop(self, "custom_folder")
 
 # get addon preferences
 def get_addon_preferences():

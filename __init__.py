@@ -35,6 +35,8 @@ import bpy
 
 from . import   (
     addon_prefs,
+    backup_operator,
+    gui,
 )
 
 
@@ -42,8 +44,11 @@ from . import   (
 ##################################
 
 def register():
-
     addon_prefs.register()
+    backup_operator.register()
+    gui.register()
 
 def unregister():
     addon_prefs.unregister()
+    backup_operator.unregister()
+    gui.unregister()
