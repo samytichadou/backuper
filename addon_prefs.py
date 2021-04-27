@@ -6,13 +6,19 @@ class BCKP_PF_addon_prefs(bpy.types.AddonPreferences):
     bl_idname = addon_name
 
     prefix : bpy.props.StringProperty(name='Prefix',
-        description='Backup Prefix, skipped if empty')
+        description='Backup Prefix, skipped if empty',
+        default="_",
+        )
 
     suffix : bpy.props.StringProperty(name='Suffix',
-        description='Backup Suffix, skipped if empty')
+        description='Backup Suffix, skipped if empty',
+        default="bckp",
+        )
 
     custom_folder : bpy.props.StringProperty(name='Custom Folder Name',
-        description='Custom Backup Folder Name, skipped if empty')
+        description='Custom Backup Folder Name, skipped if empty',
+        default="_backup_files",
+        )
 
     def draw(self, context):
         layout = self.layout
