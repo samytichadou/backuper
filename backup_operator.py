@@ -10,9 +10,9 @@ def find_version(filedir, pattern):
             filename_noext = os.path.splitext(filename)[0]
             version_list.append(int(filename_noext.split(pattern)[1]))
     if version_list:
-        version = str(max(version_list) + 1).zfill(5)
+        version = str(max(version_list) + 1).zfill(3)
     else:
-        version = "0".zfill(5)
+        version = "0".zfill(3)
     return version
 
 
@@ -34,6 +34,7 @@ def save_backup(prefix, suffix, backup_folder):
         filedir = old_filedir
 
     #filename
+    new_filename = old_filename
     if prefix:
         if prefix.endswith("_"):
             new_filename = prefix + old_filename
